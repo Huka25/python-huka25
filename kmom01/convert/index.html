@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Övningar & Uppgifter – webt-kursen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="blekinge.png" alt="blekinge">
+    <h1>Lab 2 och Rapportsida – Webtec-kursen</h1>
+  </header>
+
+  <main>
+    <section>
+        <p>Här finns ett antal instuderingsfrågor som hjälper dig att finna 
+        information på egen hand för att träna på de koncept som är relevanta för detta kmom.</p>
+      <h4 class="toggle">Instuderingsfrågor om HTML</h4>
+      <ul class="content">
+        <li>Vad står <strong>HTML</strong> för?</li>
+        <p>HTML står för HyperText Markup Language.</p>
+      </ul>
+    </section>
+
+    <section>
+      <h4 class="toggle">Instuderingsfrågor om CSS</h4>
+      <ul class="content">
+        <li>Vad står <strong>CSS</strong> för?</li>
+        <p>CSS står för Cascading Style Sheets.</p>
+      </ul>
+    </section>
+
+    <section>
+      <h4 class="toggle">Instuderingsfrågor om JavaScript</h4>
+      <ul class="content">
+        <li>Ge en kort historik över programmeringsspråket <strong>JavaScript</strong>.</li>
+        <p>JavaScript skapades år 1995 av Brendan Eich på företaget Netscape.</p>
+        <ul>
+            <li>Ursprungligen hette det Mocha, sedan LiveScript, innan det fick namnet JavaScript.</li>
+            <li>Det utvecklades för att göra webbsidor mer interaktiva, 
+                något som HTML och CSS inte kunde göra själva.</li>
+            <li>rots namnet har språket ingen koppling till Java,
+                 namnet valdes mest för marknadsföring.</li>
+            <li>Numera är JavaScript ett av de mest använda språken 
+                i världen och körs i alla webbläsare, men också på servrar via Node.js.</li>
+        </ul>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Kursmaterial</p>
+  </footer>
+
+
+
+
+  <script>
+    document.querySelectorAll(".toggle").forEach(title => {
+        title.addEventListener("click", () => {
+            const content = title.nextElementSibling;
+            const isOpen = content.classList.contains("show");
+
+            // Close all sections
+            document.querySelectorAll(".content").forEach(c => c.classList.remove("show"));
+
+            // If it was not open, open it
+            if (!isOpen) {
+            content.classList.add("show");
+            }
+        });
+    });
+  </script>
+</body>
+</html>
