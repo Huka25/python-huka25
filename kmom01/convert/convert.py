@@ -1,26 +1,28 @@
 
+print("\nHello and welcome to the unit converter!")
+user_input = input("Enter a value to convert: ")
 
-def celsius_to_fahrenheit(celsius):
-    return celsius * 9 / 5 + 32
+try:
+    value = float(user_input)
+except ValueError:
+    print("Invalid value, please enter a number.")
+    exit()
 
-def fahrenheit_to_celsius(fahrenheit):
-    return (fahrenheit - 32) * 5 / 9
+print("Choose what to convert: ")
+print("P: Price, before & after discount and tax: ")
+print("S: Speed, km/h > mph: ")
 
-def main():
-    print("Välkommen till konverteraren!")
-    print("1. Celsius → Fahrenheit")
-    print("2. Fahrenheit → Celsius")
-    
-    choice = input("Välj ett alternativ (1 eller 2): ")
-
-    if choice == "1":
-        c = float(input("Ange temperatur i Celsius: "))
-        print(f"{c} °C = {celsius_to_fahrenheit(c):.2f} °F")
-    elif choice == "2":
-        f = float(input("Ange temperatur i Fahrenheit: "))
-        print(f"{f} °F = {fahrenheit_to_celsius(f):.2f} °C")
-    else:
-        print("Fel: Ogiltigt val.")
-
-if __name__ == "__main__":
-    main()
+convert = input().strip().upper()
+if convert == "P":
+    discount = 10
+    moms = 0.20
+    price_later = (value - discount) * (1 + moms)
+    print(
+        f"The final price of {round(value, 2)} after 10kr discount and 20% is: {round(price_later, 2)}"
+    )
+elif convert == "S":
+    mph = value * 0.62137
+    print(f"{round(value, 2)} km/h in mph is {round(value, 2)} mph")
+else:
+    print("Invalid converted, please enter S or P")
+    exit()
